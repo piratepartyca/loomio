@@ -324,6 +324,18 @@ en:
     see_how_everyone_feels_description: "When you’ve made your decision, you’ll be prompted to give a brief summary statement explaining why you feel that way. Underneath the pie, you can see how other people in the group have decided. These short statements make it really easy to catch up with where the discussion is up to."
 
   #
+  # CONTRIBUTIONS
+  #
+
+  contribution:
+    any_amount: "Give any amount"
+    monthly_html: "Monthly contribution <span>(NZD)</span>"
+    one_time_html: "One-time contribution <span>(NZD)</span>"
+    thought_about_contributing: "Thought about contributing to Loomio?"
+    thought_about_contributing_description_html: "<p>We believe that money should never be a barrier to groups doing great stuff in their communities. For groups without a budget, individual members make a voluntary contribution within their means.</p> <p>Since your group has chosen to use Loomio without paying a subscription, we’re inviting you to contribute to Loomio, to make it easy for as many people as possible to participate in decisions that affect them.</p>"
+    thanks: "Thanks for pitching in!"
+
+  #
   # SIGN IN
   #
 
@@ -535,6 +547,7 @@ en:
   password: "Password"
   prev: "Prev"
   options: "Options"
+  other: "Other"
   ok_got_it: "Okay, got it!"
   save: "Save"
   saving: "Saving"

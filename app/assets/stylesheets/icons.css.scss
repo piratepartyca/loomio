@@ -71,8 +71,14 @@
 }
 .large-icon.group-icon {
   background-image:url('/assets/group-24.png');
-  margin: 0px;
+  margin: 0;
 }
+
+.large-icon.heart-icon {
+  background-image:url('/assets/heart-icon.png');
+  margin: 0;
+}
+
 .large-icon.notification-icon {
   background-image:url('/assets/notification-24.png');
   margin: 0;

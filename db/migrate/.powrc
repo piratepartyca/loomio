@@ -1,0 +1,3 @@
++export SWIPE_API_KEY="a49fb7c0a69ad10326cf06bb94ccb5f491aa3e49e7f9a8275629ddab08f8fa11"
++export SWIPE_MERCHANT_ID="1CE8640C46DED8"
++export SWIPE_PAYMENT_URL="https://api.swipehq.com/createTransactionIdentifier.php"

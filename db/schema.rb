@@ -96,6 +96,14 @@ ActiveRecord::Schema.define(:version => 20130601065139) do
   add_index "comments", ["parent_id"], :name => "index_comments_on_parent_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
+  create_table "contributions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "identifier_id"
+    t.string   "response_code"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
     t.integer  "attempts",   :default => 0
