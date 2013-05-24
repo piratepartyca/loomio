@@ -2,7 +2,7 @@
 %html
   %p= t("email.create_discussion.intro")
 
-  %p= link_to(t("email.create_discussion.view_discussion"), discussion_url(@discussion))
+  %p= link_to(t("email.view_discussion"), discussion_url(@discussion))
 
   %table
     %tr
@@ -14,7 +14,7 @@
       %td
         = @discussion.group.full_name
     %tr
-      %th= t("email.create_discussion.started_by")
+      %th.nowrap= t("email.create_discussion.started_by")
       %td
         = @discussion.author.name
 

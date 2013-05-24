@@ -1,7 +1,7 @@
 = render '/application/mailer_doctype'
 %html
   %p= t("email.create_proposal.intro")
-  %p= link_to(t("email.create_proposal.view_proposal"), "#{discussion_url(@motion.discussion, proposal: @motion)}")
+  %p= link_to(t("email.view_proposal"), "#{discussion_url(@motion.discussion, proposal: @motion)}")
 
   %table
     %tr

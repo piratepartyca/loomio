@@ -393,14 +393,17 @@ en:
   email:
     unsubscribe: "Unsubscribe or change your email preferences:"
     unsubscribe_html: "<a href='%{link_path}'>%{link_text}</a> to unsubscribe or change your email preferences."
+    view_discussion: "Click here to view this discussion:"
+    view_group: "Click here to view the group on Loomio"
+    view_proposal: "Click here to view this proposal"
     create_discussion:
       intro: "A new discussion was created in a Loomio group that you belong to."
       started_by: "Started by"
-      view_discussion: "Click here to view this discussion:"
     create_proposal:
       intro: "A new proposal was created in a Loomio group that you belong to."
-      view_proposal: "Click here to view this proposal"
       closes_in: "Closes in"
+    group_email:
+      intro: "%{who} made an announcement to %{group}:"
 
   #
   # COMMON WORDS

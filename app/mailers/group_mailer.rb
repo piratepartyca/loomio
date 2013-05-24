@@ -1,4 +1,4 @@
-class GroupMailer < ActionMailer::Base
+class GroupMailer < BaseMailer
   include ApplicationHelper
   default :from => "\"Loomio\" <noreply@loomio.org>", :css => :email
 
@@ -17,6 +17,7 @@ class GroupMailer < ActionMailer::Base
     @sender = sender
     @message = message
     @recipient = recipient
+    set_email_locale(recipient.language_preference, sender.language_preference)
     mail  :to => @recipient.email,
           :reply_to => @group.admin_email,
           :subject => "#{email_subject_prefix(@group.full_name)} #{subject}"
