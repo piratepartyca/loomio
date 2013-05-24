@@ -404,6 +404,9 @@ en:
       closes_in: "Closes in"
     group_email:
       intro: "%{who} made an announcement to %{group}:"
+    membership_request:
+      intro: "%{name} (%{email}) has requested access to one of your Loomio groups."
+      view_group: "You can approve or decline the request here"
 
   #
   # COMMON WORDS

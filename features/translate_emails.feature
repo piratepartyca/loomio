@@ -52,3 +52,14 @@ Feature: translate emails
     Then "jesse@example.org" should receive an email
     When they open the email
     Then they should see "Grupo" in the email body
+
+  Scenario: English-speaking user requests to join group with Spanish-speaking admin
+    Given I am logged in
+    And a public group exists with a Spanish-speaking admin "eduardo"
+    When I visit the group page
+    And no emails have been sent
+    When I click the element "#request-membership"
+    Then "eduardo@example.org" should receive an email
+    When they open the email
+    Then they should see Spanish text in the email body
+
