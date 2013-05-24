@@ -396,7 +396,11 @@ en:
     create_discussion:
       intro: "A new discussion was created in a Loomio group that you belong to."
       started_by: "Started by"
-      view_discussion: "To view this discussion click:"
+      view_discussion: "Click here to view this discussion:"
+    create_proposal:
+      intro: "A new proposal was created in a Loomio group that you belong to."
+      view_proposal: "Click here to view this proposal"
+      closes_in: "Closes in"
 
   #
   # COMMON WORDS
@@ -404,6 +408,7 @@ en:
 
   ago: "%{quantity_of_time} ago"
   approve: "Approve"
+  author: "Author"
   back: "Back"
   by: "By"
   cancel: "Cancel"
@@ -414,6 +419,7 @@ en:
   closing: "Closing"
   closed: "Closed"
   delete: "Delete"
+  details: "Details"
   edit: "Edit"
   email_address: "Email address"
   enable: "Enable"
@@ -429,6 +435,7 @@ en:
   name: "Name"
   new_activity: "New activity"
   password: "Password"
+  proposal: "Proposal"
   options: "Options"
   save: "Save"
   saving: "Saving"

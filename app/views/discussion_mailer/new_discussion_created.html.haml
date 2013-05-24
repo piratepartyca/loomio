@@ -2,7 +2,7 @@
 %html
   %p= t("email.create_discussion.intro")
 
-  %p= link_to("Click here to view this discussion", discussion_url(@discussion))
+  %p= link_to(t("email.create_discussion.view_discussion"), discussion_url(@discussion))
 
   %table
     %tr

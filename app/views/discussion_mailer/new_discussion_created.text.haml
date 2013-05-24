@@ -1,6 +1,6 @@
 = t("email.create_discussion.intro")
 \
-= t("email.create_discussion.view_discussion")
+= "#{t('email.create_discussion.view_discussion')}:"
 = discussion_url(@discussion)
 \
 = "#{t(:discussion)}:"
@@ -9,7 +9,7 @@
 = "#{t(:group)}:"
 = @discussion.group.full_name
 \
-= t("email.create_discussion.started_by")
+= "#{t('email.create_discussion.started_by')}:"
 = @discussion.author.name
 \
 = render 'user_mailer/unsubscribe_link_text'
