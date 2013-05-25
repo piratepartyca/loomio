@@ -1,4 +1,4 @@
-class UserMailer < ActionMailer::Base
+class UserMailer < BaseMailer
   include ApplicationHelper
   include ERB::Util
   include ActionView::Helpers::TextHelper
@@ -10,6 +10,7 @@ class UserMailer < ActionMailer::Base
     @since_time = since_time
     @since_time_formatted = since_time.strftime('%A, %-d %B')
     @groups = user.groups.sort{|a,b| a.full_name <=> b.full_name }
+    set_email_locale(user.language_preference, nil)
     mail to: @user.email,
          subject: "Loomio - Summary of the last 24 hours"
   end

@@ -91,3 +91,23 @@ Feature: translate emails
     Then "jesse@example.org" should receive an email
     When they open the email
     Then they should see "Grupo" in the email body
+
+  Scenario: Ben is sent a daily activity email
+    Given there is a user "Ben"
+    And there is a user "Hannah"
+    And "Ben" is subscribed to daily activity emails
+    And "Hannah" is subscribed to daily activity emails
+    And "Ben"s language preference is set to "es"
+    And "Hannah"s language preference is set to "en"
+    Given there is a group "Pals"
+    And "Ben" belongs to "Pals"
+    And "Hannah" belongs to "Pals"
+    And there is a discussion "I'm Lonely" in "Pals"
+    And no emails have been sent
+    When we send the daily activity email
+    Then "hannah@example.org" should receive an email
+    When they open the email
+    Then they should see "Discussions" in the email body
+    Then "ben@example.org" should receive an email
+    When they open the email
+    Then they should see some Spanish text in the email body

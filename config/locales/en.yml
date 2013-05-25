@@ -402,6 +402,9 @@ en:
     create_proposal:
       intro: "A new proposal was created in a Loomio group that you belong to."
       closes_in: "Closes in"
+    daily_activity:
+      heading: "Your Loomio Activity"
+      intro: "Showing you what’s been happening in your Loomio groups in the last 24 hours"
     group_email:
       intro: "%{who} made an announcement to %{group}:"
     membership_request:
@@ -430,8 +433,10 @@ en:
   close: "Close"
   closing: "Closing"
   closed: "Closed"
+  decisions: "Decisions"
   delete: "Delete"
   details: "Details"
+  discussions: "Discussions"
   edit: "Edit"
   email_address: "Email address"
   enable: "Enable"
