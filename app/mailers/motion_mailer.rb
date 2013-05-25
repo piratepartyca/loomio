@@ -27,6 +27,7 @@ class MotionMailer < BaseMailer
     @motion = vote.motion
     @discussion = @motion.discussion
     @group = @motion.group
+    set_email_locale(@motion.author.language_preference, @user.language_preference)
     mail( to: @motion.author_email,
           reply_to: @group.admin_email,
           subject: "#{email_subject_prefix(@group.full_name)} Proposal blocked - #{@motion.name}")

@@ -77,3 +77,17 @@ Feature: translate emails
     Then "jesse@example.org" should receive an email
     When they open the email
     Then they should see some Spanish text in the email body
+
+  Scenario: Spanish-speaking user receives proposal blocked email in Spanish
+    Given I am logged in
+    And there is a discussion in a group I belong to
+    And "Jesse" is a Spanish-speaking member of the group
+    And the discussion has an open proposal
+    And "Jesse" is the author of the proposal
+    And no emails have been sent
+    When I visit the discussion page
+    And I click the 'block' vote button
+    And I enter a statement for my block
+    Then "jesse@example.org" should receive an email
+    When they open the email
+    Then they should see "Grupo" in the email body
