@@ -407,6 +407,9 @@ en:
     membership_request:
       intro: "%{name} (%{email}) has requested access to one of your Loomio groups."
       view_group: "You can approve or decline the request here"
+    proposal_closed:
+      intro: 'Your proposal "%{proposal_name}" has closed.'
+      specify_outcome: "Please click here to specify an outcome"
 
   #
   # COMMON WORDS

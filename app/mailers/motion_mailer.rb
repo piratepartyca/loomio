@@ -15,6 +15,7 @@ class MotionMailer < BaseMailer
   def motion_closed(motion, email)
     @motion = motion
     @group = motion.group
+    set_email_locale(User.find_by_email(email).language_preference, motion.author.language_preference)
     mail( to: email,
           reply_to: "noreply@loomio.org",
           subject: "#{email_subject_prefix(@group.full_name)} Proposal closed - #{@motion.name}")

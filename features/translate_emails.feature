@@ -61,5 +61,19 @@ Feature: translate emails
     When I click the element "#request-membership"
     Then "eduardo@example.org" should receive an email
     When they open the email
-    Then they should see Spanish text in the email body
+    Then they should see some Spanish text in the email body
 
+  Scenario: Spanish-speaking user receives proposal closed email in Spanish
+    Given I am logged in
+    And I am an admin of a group
+    And "Jesse" is a Spanish-speaking member of the group
+    And there is a discussion in the group
+    And the discussion has an open proposal
+    And "Jesse" is the author of the proposal
+    And no emails have been sent
+    When I visit the discussion page
+    And I click the 'Close proposal' button
+    And I confirm the action
+    Then "jesse@example.org" should receive an email
+    When they open the email
+    Then they should see some Spanish text in the email body

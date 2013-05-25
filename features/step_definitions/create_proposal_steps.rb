@@ -27,3 +27,8 @@ Then /^I should see the proposal details$/ do
   find('.description').should have_content(proposal_description)
   find('.pie').text.blank?.should == false
 end
+
+Given(/^"(.*?)" is the author of the proposal$/) do |arg1|
+  @motion.update_attribute(:author, User.find_by_email("#{arg1}@example.org"))
+  @motion.save
+end

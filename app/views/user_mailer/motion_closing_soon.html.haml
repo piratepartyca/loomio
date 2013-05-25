@@ -13,7 +13,7 @@
 
     - if @motion.has_close_date?
       %tr
-        %th Closes&nbsp;at
+        %th.nowrap Closes at
         %td= time_ago_in_words(@motion.close_date) + " (" + @motion.close_date.localtime.strftime('%a %d %b %Y, %I:%M%p, %Z') + ")"
 
     - if @motion.description.present?
