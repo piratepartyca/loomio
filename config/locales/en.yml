@@ -393,6 +393,7 @@ en:
   email:
     unsubscribe: "Unsubscribe or change your email preferences:"
     unsubscribe_html: "<a href='%{link_path}'>%{link_text}</a> to unsubscribe or change your email preferences."
+    view_comment: "Click here to view the comment on Loomio"
     view_discussion: "Click here to view this discussion:"
     view_group: "Click here to view the group on Loomio"
     view_proposal: "Click here to view this proposal"
@@ -410,6 +411,9 @@ en:
     membership_request:
       intro: "%{name} (%{email}) has requested access to one of your Loomio groups."
       view_group: "You can approve or decline the request here"
+    mentioned:
+      intro: "You were mentioned in a discussion titled:"
+      said: "%{comment_author} said:"
     proposal_closed:
       intro: 'Your proposal "%{proposal_name}" has closed.'
       specify_outcome: "Please click here to specify an outcome"

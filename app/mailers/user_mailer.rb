@@ -20,6 +20,7 @@ class UserMailer < BaseMailer
     @comment = comment
     @rendered_comment_body = render_rich_text(comment.body, comment.uses_markdown)
     @discussion = comment.discussion
+    set_email_locale(user.language_preference, comment.author.language_preference)
     mail to: @user.email,
          subject: "#{comment.author.name} mentioned you in the #{comment.group.name} group on Loomio"
   end
@@ -27,6 +28,7 @@ class UserMailer < BaseMailer
   def group_membership_approved(user, group)
     @user = user
     @group = group
+    set_email_locale(user.language_preference, User.find_by_email(@group.admin_email).language_preference)
     mail( :to => user.email,
           :reply_to => @group.admin_email,
           :subject => "#{email_subject_prefix(@group.full_name)} Membership approved")
