@@ -9,8 +9,7 @@ class GroupMailer < BaseMailer
     set_email_locale(User.find_by_email(@group.admin_email).language_preference, @user.language_preference)
     mail( :to => @admins,
           :reply_to => @group.admin_email,
-          :subject => "#{email_subject_prefix(@group.full_name)} New membership" +
-      " request from #{@user.name}")
+          :subject => "#{email_subject_prefix(@group.full_name)} New membership request from #{@user.name}")
   end
 
   def group_email(group, sender, subject, message, recipient)
@@ -26,7 +25,7 @@ class GroupMailer < BaseMailer
 
   def deliver_group_email(group, sender, subject, message)
     group.users.each do |user|
-      unless user == sender || !user.accepted_or_not_invited?
+      unless user == sender
         GroupMailer.group_email(group, sender, subject, message, user).deliver
       end
     end

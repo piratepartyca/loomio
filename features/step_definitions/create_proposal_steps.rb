@@ -1,4 +1,4 @@
-When /^fill in the proposal details and submit the form$/ do
+When /^I fill in the proposal details and submit the form$/ do
   @proposal_name = Faker::Lorem.sentence
   @proposal_description = Faker::Lorem.paragraph
   fill_in 'motion_name', with: @proposal_name
@@ -6,12 +6,16 @@ When /^fill in the proposal details and submit the form$/ do
   click_on 'proposal-submit'
 end
 
+Then /^I should see the create proposal page$/ do
+  page.should have_css("#motion-form")
+end
+
 Then /^clicking the link in the email should take him to the proposal$/ do
-  click_first_link_in_email
+  step 'I click the third link in the email'
   page.should have_content(@proposal_name)
 end
 
-Then /^a new proposal is created$/ do
+Then /^a new proposal should be created$/ do
   Motion.where(:name => @proposal_name).should exist
 end
 
@@ -31,4 +35,8 @@ end
 Given(/^"(.*?)" is the author of the proposal$/) do |arg1|
   @motion.update_attribute(:author, User.find_by_email("#{arg1}@example.org"))
   @motion.save
+end
+
+Then(/^the time zone should match my time zone setting$/) do
+  find('#motion_close_at_time_zone option[selected]').value.should == @user.time_zone_city
 end

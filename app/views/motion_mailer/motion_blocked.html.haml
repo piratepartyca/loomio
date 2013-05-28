@@ -2,7 +2,7 @@
 %html
   %p= t("email.proposal_blocked.intro")
   %p
-    = link_to(t("email.view_proposal"), discussion_url(@motion.discussion, proposal: @motion))
+    = link_to(t("email.view_proposal"), motion_url(@motion))
 
   %table
     %tr
