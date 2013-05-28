@@ -21,6 +21,15 @@ Feature: deliver emails in the user's prefered language
   Scenario: proposal blocked email
     Given "John" has blocked a proposal started by "Eduardo"
     Then the proposal blocked email should be delivered to "Eduardo" in Spanish
+    Given "Eduardo" has blocked a proposal started by "John"
+    Then the proposal blocked email should be delivered to "John" in English
+    Given "Viv" has blocked a proposal started by "Eduardo"
+    Then the proposal blocked email should be delivered to "Eduardo" in Spanish
+
+  Scenario: proposal closing soon email
+    Given the proposal started by "Eduardo" is closing soon
+    Then "John" should receive the proposal closing soon email in English
+    And "Viv" should receive the proposal closing soon email in Spanish
 
   Scenario: proposal closed email
     Given "Eduardo" has closed their proposal
@@ -35,3 +44,20 @@ Feature: deliver emails in the user's prefered language
   Scenario: daily activity email
     When the daily activity email is sent
     Then "Eduardo" should receive the daily activity email in Spanish
+    And "John" should receive the daily activity email in English
+    And "Viv" should receive the daily activity email in English
+
+  Scenario: mentioned email
+    When "John" mentions "Eduardo" in a comment
+    Then "Eduardo" should receive the mention email in Spanish
+    When "Eduardo" mentions "Viv" in a comment
+    Then "Viv" should receive the mention email in Spanish
+    When "Eduardo" mentions "John" in a comment
+    Then "John" should receive the mention email in English
+
+  Scenario: group membership request approved email
+    When "John" requests to join a group administered by "Eduardo"
+    Then "John" should receive the membership request approval email in English
+    When "Eduardo" requests to join a group administered by "John"
+    Then "Eduardo" should receive the membership request approval email in Spanish
+

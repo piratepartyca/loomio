@@ -37,6 +37,7 @@ class UserMailer < BaseMailer
   def motion_closing_soon(user, motion)
     @user = user
     @motion = motion
+    set_email_locale(user.language_preference, @motion.author.language_preference)
     mail to: user.email,
          reply_to: @motion.author.email,
          subject: "[Loomio - #{@motion.group.name}] Proposal closing soon: #{@motion.name}"

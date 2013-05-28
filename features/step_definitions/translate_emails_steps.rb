@@ -68,6 +68,30 @@ Then(/^the proposal blocked email should be delivered to "(.*?)" in Spanish$/) d
   email.body.encoded.should include(I18n.t(:group, locale: "es"))
 end
 
+Then(/^the proposal blocked email should be delivered to "(.*?)" in English$/) do |arg1|
+  email = MotionMailer.motion_blocked(@vote)
+  email.body.encoded.should include(I18n.t(:group, locale: "en"))
+end
+
+Given(/^the proposal started by "(.*?)" is closing soon$/) do |arg1|
+  author = User.find_by_email("#{arg1}@example.org")
+  group = FactoryGirl.create :group
+  @discussion = FactoryGirl.create :discussion, group: group
+  @motion = FactoryGirl.create :motion, discussion: @discussion, author: author, close_date: Time.now + 1.hour
+end
+
+Then(/^"(.*?)" should receive the proposal closing soon email in English$/) do |arg1|
+  user = User.find_by_email("#{arg1}@example.org")
+  email = UserMailer.motion_closing_soon(user, @motion)
+  email.body.encoded.should include(I18n.t(:group, locale: "en"))
+end
+
+Then(/^"(.*?)" should receive the proposal closing soon email in Spanish$/) do |arg1|
+  user = User.find_by_email("#{arg1}@example.org")
+  email = UserMailer.motion_closing_soon(user, @motion)
+  email.body.encoded.should include(I18n.t(:group, locale: "es"))
+end
+
 Given(/^"(.*?)" has closed their proposal$/) do |arg1|
   author = User.find_by_email("#{arg1}@example.org")
   group = FactoryGirl.create :group
@@ -115,3 +139,45 @@ Then(/^"(.*?)" should receive the daily activity email in Spanish$/) do |arg1|
   email.body.encoded.should include(I18n.t("email.daily_activity.heading", locale: "es"))
 end
 
+Then(/^"(.*?)" should receive the daily activity email in English$/) do |arg1|
+  user = User.find_by_email("#{arg1}@example.org")
+  email = UserMailer.daily_activity(user, @results, @since_time)
+  email.body.encoded.should include(I18n.t("email.daily_activity.heading", locale: "en"))
+end
+
+When(/^"(.*?)" mentions "(.*?)" in a comment$/) do |arg1, arg2|
+  comment_author = User.find_by_email("#{arg1}@example.org")
+  @mentioned_user = User.find_by_email("#{arg2}@example.org")
+  @comment = FactoryGirl.create :comment, user_id: comment_author.id, body: "hey @#{arg2} whuddup"
+end
+
+Then(/^"(.*?)" should receive the mention email in Spanish$/) do |arg1|
+  user = User.find_by_email("#{arg1}@example.org")
+  email = UserMailer.mentioned(user, @comment)
+  email.body.encoded.should include(I18n.t("email.mentioned.intro", locale: "es"))
+end
+
+Then(/^"(.*?)" should receive the mention email in English$/) do |arg1|
+  user = User.find_by_email("#{arg1}@example.org")
+  email = UserMailer.mentioned(user, @comment)
+  email.body.encoded.should include(I18n.t("email.mentioned.intro", locale: "en"))
+end
+
+When(/^"(.*?)" requests to join a group administered by "(.*?)"$/) do |arg1, arg2|
+  user = User.find_by_email("#{arg1}@example.org")
+  admin = User.find_by_email("#{arg2}@example.org")
+  @group = FactoryGirl.create :group
+  @group.add_admin!(admin)
+end
+
+Then(/^"(.*?)" should receive the membership request approval email in English$/) do |arg1|
+  user = User.find_by_email("#{arg1}@example.org")
+  email = UserMailer.group_membership_approved(user, @group)
+  email.body.encoded.should include(I18n.t("email.view_group", locale: "en"))
+end
+
+Then(/^"(.*?)" should receive the membership request approval email in Spanish$/) do |arg1|
+  user = User.find_by_email("#{arg1}@example.org")
+  email = UserMailer.group_membership_approved(user, @group)
+  email.body.encoded.should include(I18n.t("email.view_group", locale: "es"))
+end
