@@ -43,6 +43,7 @@ class UserMailer < BaseMailer
          subject: "[Loomio - #{@motion.group.name}] Proposal closing soon: #{@motion.name}"
   end
 
+  # Is this obsolete?
   # Invited to loomio (assumes user has been invited to a group at the same time)
   def invited_to_loomio(new_user, inviter, group)
     @new_user = new_user

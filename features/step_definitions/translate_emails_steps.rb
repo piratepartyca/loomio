@@ -125,6 +125,23 @@ Then(/^the membership request email should be delivered to "(.*?)" in English$/)
   email.body.encoded.should include(I18n.t("email.membership_request.view_group", locale: "en"))
 end
 
+When(/^"(.*?)" approves "(.*?)"s group membership request$/) do |arg1, arg2|
+  admin = User.find_by_email("#{arg1}@example.org")
+  user = User.find_by_email("#{arg2}@example.org")
+  group = FactoryGirl.create :group
+  group.add_admin!(admin)
+  @membership = group.add_request!(user)
+  @email = UserMailer.group_membership_approved(user, group)
+end
+
+Then(/^the group membership request approved email should be delivered in Spanish$/) do
+  @email.body.encoded.should include(I18n.t("email.view_group", locale: "es"))
+end
+
+Then(/^the group membership request approved email should be delivered in English$/) do
+  @email.body.encoded.should include(I18n.t("email.view_group", locale: "en"))
+end
+
 When(/^the daily activity email is sent$/) do
   user = FactoryGirl.create :user
   group = FactoryGirl.create :group
@@ -180,4 +197,36 @@ Then(/^"(.*?)" should receive the membership request approval email in Spanish$/
   user = User.find_by_email("#{arg1}@example.org")
   email = UserMailer.group_membership_approved(user, @group)
   email.body.encoded.should include(I18n.t("email.view_group", locale: "es"))
+end
+
+When(/^"(.*?)" makes an announcement to the group$/) do |arg1|
+  @sender = User.find_by_email("#{arg1}@example.org")
+  @group = FactoryGirl.create :group
+end
+
+Then(/^"(.*?)" should receive the group email in English$/) do |arg1|
+  recipient = User.find_by_email("#{arg1}@example.org")
+  email = GroupMailer.group_email(@group, @sender, "Subject", "message", recipient)
+  email.body.encoded.should include(I18n.t("email.view_group", locale: "en"))
+end
+
+Then(/^"(.*?)" should receive the group email in Spanish$/) do |arg1|
+  recipient = User.find_by_email("#{arg1}@example.org")
+  email = GroupMailer.group_email(@group, @sender, "Subject", "message", recipient)
+  email.body.encoded.should include(I18n.t("email.view_group", locale: "es"))
+end
+
+Given(/^"(.*?)" is a logged\-out user$/) do |arg1|
+  @logged_out_user_email = "#{arg1}@example.org"
+end
+
+When(/^their browser header indicates a Spanish language preference$/) do
+  page.driver.headers = { "Accept-Language" => "es" }
+end
+
+Then(/^they should receive the group request verification email in Spanish$/) do
+  group_request = GroupRequest.first
+  email = StartGroupMailer.verification(group_request)
+  # email.body.encoded.should include("I18n.t("email.verification.header", locale: "es")")
+  email.body.encoded.should include("Grupo")
 end

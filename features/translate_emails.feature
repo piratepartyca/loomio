@@ -41,6 +41,12 @@ Feature: deliver emails in the user's prefered language
     Then the membership request email should be delivered to "Eduardo" in Spanish
     Then the membership request email should be delivered to "Viv" in English
 
+  Scenario: group membership approved email
+    When "John" approves "Eduardo"s group membership request
+    Then the group membership request approved email should be delivered in Spanish
+    When "Eduardo" approves "John"s group membership request
+    Then the group membership request approved email should be delivered in English
+
   Scenario: daily activity email
     When the daily activity email is sent
     Then "Eduardo" should receive the daily activity email in Spanish
@@ -61,3 +67,15 @@ Feature: deliver emails in the user's prefered language
     When "Eduardo" requests to join a group administered by "John"
     Then "Eduardo" should receive the membership request approval email in Spanish
 
+  Scenario: Group announcement email
+    When "Eduardo" makes an announcement to the group
+    Then "John" should receive the group email in English
+    And "Viv" should receive the group email in Spanish
+
+  @javascript
+  Scenario: Group request verification email
+    Given "Joan" is a logged-out user
+    When they visit the Request New Group page
+    And their browser header indicates a Spanish language preference
+    When they fill in and submit the Request New Group Form
+    Then they should receive the group request verification email in Spanish

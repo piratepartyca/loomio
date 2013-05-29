@@ -533,6 +533,10 @@ en:
     proposal_closing_soon:
       closes_in: "Closes in"
       summary: "Summary"
+    verification:
+      header: "You're almost done!"
+      intro: "Please click this verification link to finalise your request:"
+      ignore: "If you did not request to join Loomio please ignore this email."
 
 
   #
