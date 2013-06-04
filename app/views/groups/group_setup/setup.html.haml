@@ -9,11 +9,11 @@
           %a{ href: "#group-tab" }
             = t("group_setup_form.tabs.group")
         %li.disabled
-          %a{ href: "#discussion-tab" }
-            = t("group_setup_form.tabs.discussion")
-        %li.disabled
           %a{ href: "#invite-tab" }
             = t("group_setup_form.tabs.invites")
+        %li.disabled
+          %a{ href: "#discussion-tab" }
+            = t("group_setup_form.tabs.discussion")
       .tab-content#wizard-tabs
         .tab-pane.active#intro-tab
           .row
@@ -47,22 +47,6 @@
               = f.input :viewable_by, :as => 'radio_buttons', :collection => {'Public - anyone with the link can see this group' => 'everyone', 'Members - only members of this group can see it' => 'members'}
               %br
               = f.input :members_invitable_by, :as => "radio_buttons", :collection => {'All group members' => 'members', 'Coordinators only' => 'admins'}, label: "Who can invite people to your group?"
-
-        .tab-pane#discussion-tab
-          .row
-            .span5
-              %h1= t("group_setup_form.discussion_header")
-          .row
-            .span5
-              .control-group
-                %p This will be the first discussion your members see when they join Loomio.
-                = f.input :discussion_title, input_html: { class: 'validate-presence' }
-                .inline-help= t("group_setup_form.errors.discussion_title")
-              .control-group
-                = f.input :discussion_description, input_html: { class: 'validate-presence' }
-                .inline-help= t("group_setup_form.errors.discussion_description")
-            .span4.offset1.more-help= t("group_setup_form.discussion_more_help").html_safe
-
         .tab-pane#invite-tab
           .row
             .span5
@@ -71,6 +55,15 @@
               %br
               %br
               .more-help= t("invitation.invites_more_help2").html_safe
+        .tab-pane#discussion-tab
+          .row
+            .span5
+              %h1= t("group_setup_form.discussion_header")
+          .row
+            .span5
+              .control-group
+                %p= t("group_setup_form.discussion_blurb")
+
       .row
         .span5
           = f.submit "Finish setup", class: 'btn btn-info btn-large run-validations', id: 'send_invites', :data => { :disable_with => "Finish setup" }

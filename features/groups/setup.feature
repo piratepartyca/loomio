@@ -37,7 +37,8 @@ Feature: Setup group
     And I fill in the invites panel
     And I click the "send_invites" button
     And the group_setup should be created
-    And the group should have a discussion
+    And the group should have an example discussion
+    And the example discussion should have a decision
     And invitations should be sent out to each recipient
     Then I should see the group page
     And the date the group was setup is stored

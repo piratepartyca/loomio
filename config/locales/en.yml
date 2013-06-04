@@ -434,15 +434,15 @@ en:
   group_setup_form:
     tabs:
       intro: "Before you start"
-      group: "Set up your group"
-      discussion: "Start a discussion"
+      group: "Setting up your group"
+      discussion: "Engaging your group"
       invites: "Invite your group"
-    group_header: "Set up your group"
+    group_header: "Setting up your group"
     group_settings_header: "Settings"
     group_settings_blurb: "Setting up an engaging discussion relevant to your group before inviting people in will dramatically increase the likelihood of your group succeeding in using Loomio long-term."
     group_more_help: "<p>The first question every new member will have is <em>what is this group for?</em></p><p>Think about the simplest way you can describe the group:<ul><li>What do you want to achieve together?</li><li>What types of decisions will you be making?</li><li>Who will be involved?</li></ul>"
-    discussion_header: "Start a discussion"
-    discussion_blurb: "Setting up an engaging discussion relevant to your group before inviting people in will dramatically increase the likelihood of your group succeeding in using Loomio long-term."
+    discussion_header: "Engaging your group"
+    discussion_blurb: "We can create an example discussion in your group for you so that when you invite the group members there will be some content  with which they can familiarize themselves.  This is a great way to get your group engaged and comfortable with Loomio."
     discussion_more_help: "<p>Make sure you start with a clear discussion that your group members can easily engage with, so people can jump in and start participating straight away.</p><p>Is your group already having a discussion that you could shift to Loomio?</p>"
 
     errors:

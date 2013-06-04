@@ -10,7 +10,6 @@ Given(/^I fill in the form upto the invites tab$/) do
   find('#start').click()
   step 'I fill in the group panel'
   step "I click the \"next\" button"
-  step 'I fill in the discussion panel'
   step "I click the \"next\" button"
 end
 
@@ -38,11 +37,6 @@ end
 
 When /^I fill in the group panel$/ do
   fill_in 'group_setup_group_description', with: "A discription of my group"
-end
-
-When /^I fill in the discussion panel$/ do
-  fill_in 'Discussion title', with: "My discussion title"
-  fill_in 'group_setup_discussion_description', with: "A discription of my discussion"
 end
 
 When /^I fill in the invites panel$/ do
@@ -74,8 +68,12 @@ Then /^the group_setup should be created$/ do
   @group_setup = GroupSetup.find_by_group_id(@group.id)
 end
 
-Then /^the group should have a discussion$/ do
+Then /^the group should have an example discussion$/ do
   @group_setup.group.discussions.count.should == 1
+end
+
+Given(/^the example discussion should have a decision$/) do
+  @group_setup.group.motions.count.should == 1
 end
 
 Then /^I should see the group page$/ do
