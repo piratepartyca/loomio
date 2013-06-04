@@ -5,7 +5,7 @@ When(/^I view click pending invitations from the group page$/) do
 end
 
 Then(/^I should see the pending invitations for the group$/) do
-  page.should have_content 'Pending Invitations'
+  page.should have_content 'Pending invitations'
 end
 
 When(/^I visit the group page and click Invite People$/) do
@@ -26,7 +26,7 @@ Then(/^there should be a couple of pending invitations to those people$/) do
 end
 
 Then(/^the flash notice should inform me of (\d+) invitations being sent$/) do |arg1|
-  page.should have_content "#{arg1} invitations sent"
+  page.should have_content "#{arg1} invitation(s) sent"
 end
 
 Given(/^there is a pending invitation to join the group$/) do

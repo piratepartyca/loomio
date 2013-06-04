@@ -15,7 +15,6 @@ en:
     cant_view_member_profile: "You're unable to view the member's profile because you are not in the same group."
     discussion_not_created: "Discussion could not be created."
     group_not_archived: "Group could not be archived."
-    invalid_email: "%{which_email} was not invited. Please check the email address is correct."
     invalid_close_date: "Invalid close date, please check this date has not passed."
     invalid_email: "Please enter at least one valid email address"
     image_upload_fail: "Unable to upload picture. Make sure the picture is under 1 MB and is a .jpeg, .png, or .gif file."
@@ -24,6 +23,7 @@ en:
     settings_not_updated: "Your settings did not get updated."
     group_request_already_verified: "Sorry! The verification link you clicked has already been confirmed. If you haven't heard from us within 48 hours, get in touch: contact@loomio.org"
     group_request_already_accepted: "Sorry! This invitation is invalid or has already been accepted."
+    group_request_contribution: "Please select a category. This isn’t a commitment to pay, just useful information to help us design our model. Thanks!"
     group_request_invalid_token: "Sorry! This is an invalid token"
     group_private_or_not_found: "Group not found. \n\nThis group might be private. If someone gave you this link, ask them to invite you to the group."
     group_already_setup: "The group you are trying to setup already exists."
@@ -50,9 +50,9 @@ en:
     membership_request_already_canceled: "Membership request has already been canceled."
     position_not_submitted: "Your position could not be submitted"
     proposal_not_created: "Proposal could not be created"
-    user_already_admin: "%{which_user} is already an admin."
-    user_already_member: "User is already a member of this group"
-    user_not_admin: "%{which_user} is not an admin"
+    user_already_admin: "%{which_user} is already an admin of this group."
+    user_already_member: "%{which_user} is already a member of this group."
+    user_not_admin: "Sorry, %{which_user} must be an admin of this group to access this."
   success:
     added_to_group: "You have been added to %{which_group}."
     close_date_changed: "Close date successfully changed."
@@ -102,16 +102,6 @@ en:
         one:   "1 year"
         other: "%{count} years"
 
-  discussion_help_text:
-    header: "Welcome to your first discussion"
-    message: "<p>The topic is at the top of the page, with context underneath.</p><p>Discussion is on the left, decisions come up on the right. If you think the group is ready to make a decision, you can make a proposal for the group to consider.</p>"
-  group_help_text:
-    header: "Welcome to your new group!"
-    message: "<p>This is the <strong>group page</strong>. On the left is a list of all the discussions in this group.</p><p>When you want the group to discuss another topic, start a new discussion.</p>"
-  dashboard_help_text:
-    header: "Welcome to your Home page"
-    message: "<p>The home page shows you all of the current discussions in all the groups you are a member of.</p><p>You can start a discussion on a new topic by clicking the “Start a discussion” button.</p>"
-
   notifications:
     header: "Notifications"
     new_discussion: "started a new discussion"
@@ -146,6 +136,7 @@ en:
   #
   # GROUP PAGE
   #
+
   invite_people: "Invite people"
   pending_invitations: 'Pending invitations'
   edit_memberships: 'Edit memberships'
@@ -351,6 +342,9 @@ en:
   #
 
   invitation:
+    invitation_not_found:  'Could not find invitation with that token. Please ask for a new invitation from the sender.'
+    invitation_cancelled: 'This invitation has been cancelled. Please contact the sender of the invitation if you believe this was done in error.'
+    invitation_already_used: 'This invitation has already been used. Please sign in to continue to your group.'
     invites_header: "Invite your group members"
     recipients: "Enter email addresses, seperated by commas:"
     invitees_placeholder: "User Name <user1@example.com>, user2@example.com"
@@ -366,12 +360,15 @@ en:
     invites_more_help: "You can customise the invitation your members receive, to explain what your group will be using Loomio for and why it’s worth their time to get involved."
     invites_more_help1: "When you're ready, click 'finish setup' to send invitations and go to your brand new group!"
     invites_more_help2: "<p>You can invite people to your group at any time.</p><p>You might want to invite all your members in right away, or you could start by inviting just the people you’re working most closely with.</p>"
-
+    send_invitations: "Send invitations"
+    invitation_link: "Invitation link"
+    copy: "If someone did not get their invitation email, please feel free to copy the invitation link above and give it to the recipient yourself."
 
   verified_email:
     subject: "Thanks for your request, you’re almost done!"
   defered_email:
     subject: "defered (placeholder)"
+
   #
   # FORMS
   #
@@ -447,7 +444,6 @@ en:
       motion_closing_inputs: "Please give a future close date"
       admin_email: "Please fill in the an administrator email address"
       invitees: "Please fill in the invited email addresse(s)"
-      message_body: "Please fill in the invite body"
 
   simple_form:
     labels:
@@ -560,6 +556,7 @@ en:
   details: "Details"
   discussions: "Discussions"
   edit: "Edit"
+  email: "Email"
   email_address: "Email address"
   enable: "Enable"
   participation: "Participation"
