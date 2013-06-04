@@ -5,9 +5,8 @@ describe GroupMailer do
   describe 'sends email on membership request' do
     before :all do
       @group = create(:group)
-      spanish_user = create(:user, language_preference: "es")
-      @group.add_admin!(spanish_user)
-      @membership = @group.add_request!(create(:user, language_preference: "en"))
+      @group.add_admin!(create(:user))
+      @membership = @group.add_request!(create(:user))
       @mail = GroupMailer.new_membership_request(@membership)
     end
 
@@ -28,11 +27,6 @@ describe GroupMailer do
     it 'assigns correct reply_to' do
       pending "This spec is failing on travis for some reason..."
       @mail.reply_to.should == [@group.admin_email]
-    end
-
-    it 'delivers mail in the prefered langauge of the admin' do
-      pending "Awaiting translation. Replace Grupo with some text from es.yml:email.membership_request"
-      @mail.body.encoded.should match('Grupo')
     end
 
     it 'assigns confirmation_url for email body' do
@@ -66,16 +60,11 @@ describe GroupMailer do
     before :all do
       @group = stub_model Group, :name => "Blue", :admin_email => "goodbye@world.com"
       @sender = stub_model User, :name => "Marvin"
-      @recipient = stub_model User, :email => "hello@world.com", language_preference: "es"
+      @recipient = stub_model User, :email => "hello@world.com"
       @subject = "meeby"
       @message = "what in the?!"
       @mail = GroupMailer.group_email(@group, @sender, @subject,
                                       @message, @recipient)
-    end
-
-    it 'delivers mail in the prefered langauge of the recipient' do
-      pending "Awaiting translation. Replace Grupo with some text from es.yml:email.view_group"
-      @mail.body.encoded.should match("Grupo")
     end
 
     subject { @mail }

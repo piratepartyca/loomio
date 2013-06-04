@@ -29,14 +29,13 @@ Then /^I should see the proposal details$/ do
   proposal_description = @proposal_description.length > 20 ? @proposal_description[0..19] : @proposal_description
   find('.motion-title').should have_content(@proposal_name)
   find('.description').should have_content(proposal_description)
-  find('.pie').text.blank?.should == false
+end
+
+Then(/^the time zone should match my time zone setting$/) do
+  find('#motion_close_at_time_zone option[selected]').value.should == @user.time_zone_city
 end
 
 Given(/^"(.*?)" is the author of the proposal$/) do |arg1|
   @motion.update_attribute(:author, User.find_by_email("#{arg1}@example.org"))
   @motion.save
-end
-
-Then(/^the time zone should match my time zone setting$/) do
-  find('#motion_close_at_time_zone option[selected]').value.should == @user.time_zone_city
 end

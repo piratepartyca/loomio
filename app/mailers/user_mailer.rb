@@ -42,15 +42,4 @@ class UserMailer < BaseMailer
          reply_to: @motion.author.email,
          subject: "[Loomio - #{@motion.group.name}] Proposal closing soon: #{@motion.name}"
   end
-
-  # Is this obsolete?
-  # Invited to loomio (assumes user has been invited to a group at the same time)
-  def invited_to_loomio(new_user, inviter, group)
-    @new_user = new_user
-    @inviter = inviter
-    @group = group
-    mail( :to => new_user.email,
-          :reply_to => inviter.email,
-          :subject => "#{inviter.name} has invited you to #{group.full_name} on Loomio")
-  end
 end

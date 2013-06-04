@@ -11,7 +11,6 @@ def create_user
   stub_model User,
       name:               Faker::Name.name,
       email:              Faker::Internet.email,
-      language_preference: "es",
       uses_markdown:      true,
       unsubscribe_token:  (('a'..'z').to_a+('0'..'9').to_a).sample(20).join,
       invitation_token:   (('a'..'z').to_a+('0'..'9').to_a).sample(20).join,
@@ -296,28 +295,6 @@ describe "Test Email:" do
       addresses.each do |email|
         user.stub email: email
         UserMailer.motion_closing_soon(user, motion).deliver
-        puts " ~ SENT (#{email})"
-      end
-    end
-
-    it "added_to_group" do
-      puts ' '
-      puts 'ADDED_TO_GROUP'
-
-      addresses.each do |email|
-        membership.user.stub email: email
-        UserMailer.added_to_group(membership).deliver
-        puts " ~ SENT (#{email})"
-      end
-    end
-
-    it "invited_to_loomio" do
-      puts ' '
-      puts 'INVITED_TO_LOOMIO'
-
-      addresses.each do |email|
-        user.stub email: email
-        UserMailer.invited_to_loomio(user, author, group).deliver
         puts " ~ SENT (#{email})"
       end
     end
