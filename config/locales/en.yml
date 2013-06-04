@@ -556,7 +556,6 @@ en:
   details: "Details"
   discussions: "Discussions"
   edit: "Edit"
-  email: "Email"
   email_address: "Email address"
   enable: "Enable"
   participation: "Participation"
@@ -587,3 +586,6 @@ en:
   unlike: "Unlike"
   until_close: "until close"
   update: "Update"
+
+  common:
+    email: "Email"
