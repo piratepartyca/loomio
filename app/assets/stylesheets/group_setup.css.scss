@@ -6,21 +6,14 @@ body.group_setup {
   .nav-tabs > li > a:hover{
     border-color: transparent;
   }
-  &.finish {
-    .recipient-list {
-      max_height: 300px;
-      overflow:scroll;
-    }
-    #finished { float: right; }
-  }
   &.setup {
     .control-label { display: block; }
-    #group_setup_group_description { height: 130px; }
+    #group_description { height: 130px; }
     // the following two lines added to cope with a bootstrap tab bug
     // trimming off the start and end of the inputs
     .radio { padding-left: 22px; }
 
-    #next, #send_invites {
+    #next, #goto-group {
       float: right;
       margin-left: 5px;
     }
@@ -38,6 +31,5 @@ body.group_setup {
         }
       }
     }
-    /*#wizard-tabs { min-height: 510px; }*/
   }
 }

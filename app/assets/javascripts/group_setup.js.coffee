@@ -33,13 +33,12 @@ hideButtons = () ->
   activeTab = $('ul.nav-tabs li.active')
   if activeTab[0] == $('ul.nav-tabs li:first')[0]
     $('#prev').hide()
-    $('#send_invites').hide()
-    $('#next').hide()
+    $('#gotor-group').hide()
   else
     $('#prev').show()
   if activeTab[0] == $('ul.nav-tabs li:last')[0]
-    $('#send_invites').show()
+    $('#goto-group').show()
     $('#next').hide()
   else
     $('#next').show() unless activeTab[0] == $('ul.nav-tabs li:first')[0]
-    $('#send_invites').hide()
+    $('#goto-group').hide()

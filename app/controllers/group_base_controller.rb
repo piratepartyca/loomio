@@ -22,7 +22,11 @@ class GroupBaseController < BaseController
   end
 
   def load_group
-    @group ||= Group.find(params[:group_id])
+    @group ||= Group.find(group_id)
+  end
+
+  def group_id
+    params[:group_id] || params[:id]
   end
 
   def check_group_read_permissions

@@ -441,9 +441,10 @@ en:
     group_settings_header: "Settings"
     group_settings_blurb: "Setting up an engaging discussion relevant to your group before inviting people in will dramatically increase the likelihood of your group succeeding in using Loomio long-term."
     group_more_help: "<p>The first question every new member will have is <em>what is this group for?</em></p><p>Think about the simplest way you can describe the group:<ul><li>What do you want to achieve together?</li><li>What types of decisions will you be making?</li><li>Who will be involved?</li></ul>"
-    discussion_header: "Engaging your group"
-    discussion_blurb: "We can create an example discussion in your group for you so that when you invite the group members there will be some content  with which they can familiarize themselves.  This is a great way to get your group engaged and comfortable with Loomio."
-    discussion_more_help: "<p>Make sure you start with a clear discussion that your group members can easily engage with, so people can jump in and start participating straight away.</p><p>Is your group already having a discussion that you could shift to Loomio?</p>"
+    next_steps_header: "Next steps"
+    next_steps_blurb: |
+      <p>Now we'll let you into your group so you can get a feel for how things are.</p> <p>When you're ready: </p><ul><li>Invite people to your group</li><li>Start a new discussion for the members to participate in.</li></ul></p>
+      <p>Thanks and we hope you enjoy using Loomio!</p>
 
     errors:
       group_name: "Please fill in the group title"
@@ -473,13 +474,7 @@ en:
         email: "Email"
         password: "Password"
         language_preference: "Language"
-      group_setup:
-        group_name: "What is the name of your group?"
-        group_description: "Give a brief description of your group"
-        viewable_by: "Who can see this group?"
-        members_invitable_by: Who can invite members to this group?
-        discussion_name: "What’s the first topic you’d like to discuss with your group?"
-        discussion_description: "Introduce the topic and give enough information to get the conversation started:"
+
 
     placeholders:
       discussion:
@@ -488,8 +483,7 @@ en:
       motion:
         name: "What is your proposed course of action?"
         description: "Give enough information so that everyone knows exactly what it means to agree or disagree."
-      group_setup:
-        discussion_title: "What is the topic you would like to discuss?"
+
   helpers:
     submit:
       group_setup:
