@@ -7,7 +7,6 @@
     = simple_form_for @group, url: finish_group_path, method: :put, validate: true do |f|
       = f.input :name
       = f.input :description, as: :text
-
       %h2= t "group_form.privacy_settings"
       = f.input :viewable_by, :as => 'radio_buttons', collection: [:everyone, :members]
       %br
