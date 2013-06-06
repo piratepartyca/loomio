@@ -9,7 +9,7 @@ class SetupGroup
     @group = Group.new
     @group.group_request = group_request
 
-    %w[name description cannot_contribute max_size].each do |attr|
+    %w[name cannot_contribute max_size].each do |attr|
       @group.send("#{attr}=", group_request.send(attr))
     end
 
@@ -47,7 +47,7 @@ class SetupGroup
     example_motion.save!
   end
 
-  def find_or_create_helper_bot
+  def self.find_or_create_helper_bot
     helper_bot = User.find_by_email('contact@loomio.org')
     unless helper_bot
       helper_bot = User.new
