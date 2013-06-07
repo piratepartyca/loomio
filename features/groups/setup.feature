@@ -6,26 +6,22 @@ Feature: Setup group
   Background:
     Given I am logged in
 
-
-@javascript
   Scenario: Group admin sets up a group
     Given I am an admin of a group
-    And I visit the group setup wizard for that group
-    And I complete the group setup wizard
+    And I visit the group setup page
+    And I complete the group setup form
     Then the group should be setup
     And I should be on the group page
 
-@javascript
   Scenario: Group admin tries to set up a group that alredy has been set up
     Given I am an admin of a group
-    And the users time-zone has been set
-    And a group is already setup
-    When I visit the group setup wizard for that group
+    And the group is already setup
+    When I visit the group setup page
     Then I should be redirected to the group page
+    And I should be notified it has already been setup
 
-@javascript
   Scenario: Non group admin tries to set up a group
     Given I am a member of a group
-    When I visit the group setup wizard for that group
+    When I visit the group setup page
     Then I should be told that I dont have permission to set up this group
 

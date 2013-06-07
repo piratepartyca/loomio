@@ -20,6 +20,9 @@ class Groups::GroupSetupController < GroupBaseController
   private
 
   def redirect_to_group_if_already_setup
-    redirect_to @group if @group.is_setup?
+    if @group.is_setup?
+      flash[:warning] = t("error.group_already_setup")
+      redirect_to @group
+    end
   end
 end

@@ -13,7 +13,7 @@ class GroupBaseController < BaseController
     load_group
     unless @group.admins.include? current_user
       flash[:warning] = t("warning.user_not_admin", which_user: current_user.name)
-      redirect_to group_path(params[:group_id])
+      redirect_to group_path(@group.id)
     end
   end
 
