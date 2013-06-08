@@ -27,6 +27,7 @@ en:
     group_request_invalid_token: "Sorry! This is an invalid token"
     group_private_or_not_found: "Group not found. \n\nThis group might be private. If someone gave you this link, ask them to invite you to the group."
     group_already_setup: "The group you are trying to setup already exists."
+    no_invites-left: "Sorry, you dont have any invitation left. Please contact us at Loomio to get more invitations."
     not_permitted_to_setup_group: "You do not have permission to setup this group."
     proposal_already_exists: "There is already an open proposal in this discussion."
   alert:
@@ -153,6 +154,7 @@ en:
   setup_step_3: "Invite people to your group"
 
   invite_people: "Invite people"
+  no_invitations_button: "No invitations left"
   pending_invitations: 'Pending Invitations'
   number_pending: 'and %{pending} pending'
   edit_memberships: 'Edit memberships'

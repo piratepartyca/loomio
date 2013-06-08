@@ -1,0 +1,4 @@
+- if group.invitations_remaining > 0
+  = icon_button(new_group_invitation_path(@group), t(:invite_people), '/assets/member-18.png', 'invite-new-members')
+- else
+  = link_to t(:no_invitations_button), "#", class: 'btn disabled', id: 'no-invitations'

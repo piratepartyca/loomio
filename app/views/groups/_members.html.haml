@@ -7,7 +7,7 @@
         %ul.dropdown-menu.pull-right.group-member-options
           -if can? :add_members, group
             -if group.is_top_level?
-              %li=link_to t(:invite_people), new_group_invitation_path(group)
+              %li=link_to t(:invite_people), new_group_invitation_path(group) if group.invitations_remaining > 0
             -else
               %li=link_to t(:add_new_member), '#invite-subgroup-members', :id => 'group-add-members', 'data-toggle' => 'modal'
           -if can? :edit, group
@@ -25,4 +25,4 @@
       - group.users.each do |user|
         = render 'membership', user: user, group: group
     -if can?(:add_members, group) && group.is_top_level?
-      = link_to members_pending_count(group), group_invitations_path(group), class: 'bottom-panel-link'
+      = link_to members_pending_count(group), group_invitations_path(group), class: 'bottom-panel-link', id: 'pending-count'

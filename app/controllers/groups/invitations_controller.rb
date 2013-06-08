@@ -2,8 +2,13 @@ class Groups::InvitationsController < GroupBaseController
   before_filter :require_current_user_can_invite_people
 
   def new
-    @invite_people = InvitePeople.new
-    load_decorated_group
+    if @group.invitations_remaining > 0
+      @invite_people = InvitePeople.new
+      load_decorated_group
+    else
+      flash[:error] = t("error.no_invites-left")
+      redirect_to group_path(@group)
+    end
   end
 
   def create
