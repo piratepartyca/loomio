@@ -3,7 +3,7 @@ class InvitePeopleMailer < ActionMailer::Base
     @invitation = invitation
     @message_body = message_body
     mail to: invitation.recipient_email, 
-         from: 'contact@loomio.org',
+         from: 'info@pirateparty.ca',
          reply_to: sender_email,
          subject: "Your Loomio group: #{@invitation.group_name} has been approved!"
   end
@@ -12,7 +12,7 @@ class InvitePeopleMailer < ActionMailer::Base
     @invitation = invitation
     @message_body = message_body
     mail to: invitation.recipient_email, 
-         from: 'contact@loomio.org',
+         from: 'info@pirateparty.ca',
          reply_to: sender_email,
          subject: "#{@invitation.inviter.name} has invited you to join #{@invitation.group_name} on Loomio"
   end
