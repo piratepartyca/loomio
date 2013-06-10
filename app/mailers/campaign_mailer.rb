@@ -1,5 +1,5 @@
 class CampaignMailer < ActionMailer::Base
-  default from: "\"Loomio\" <contact@loomio.org>"
+  default from: "\"Pirate Voting - Loomio\" <info@pirateparty.ca>"
 
   def send_request(campaign, name, email, is_spam)
     @name = name
