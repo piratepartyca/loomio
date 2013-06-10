@@ -1,5 +1,5 @@
 class StartGroupMailer < ActionMailer::Base
-  default from: "\"Loomio\" <contact@loomio.org>", :css => :email
+  default :from => "\"Pirate Voting - Loomio\" <info@pirateparty.ca>", :css => :email
 
   def verification(group_request)
     @group_request = group_request
