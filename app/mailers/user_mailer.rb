@@ -2,7 +2,7 @@ class UserMailer < ActionMailer::Base
   include ApplicationHelper
   include ERB::Util
   include ActionView::Helpers::TextHelper
-  default :from => "\"Loomio\" <noreply@loomio.org>", :css => :email
+  default :from => "\"Pirate Voting - Loomio\" <info@pirateparty.ca>", :css => :email
 
   def daily_activity(user, activity, since_time)
     @user = user
