@@ -1,6 +1,6 @@
 class MotionMailer < ActionMailer::Base
   include ApplicationHelper
-  default :from => "\"Loomio\" <noreply@loomio.org>", :css => :email
+  default :from => "\"Pirate Voting - Loomio\" <info@pirateparty.ca>", :css => :email
 
   def new_motion_created(motion, user)
     @user = user
@@ -15,7 +15,7 @@ class MotionMailer < ActionMailer::Base
     @motion = motion
     @group = motion.group
     mail( to: email,
-          reply_to: "noreply@loomio.org",
+          reply_to: "info@pirateparty.ca",
           subject: "#{email_subject_prefix(@group.full_name)} Proposal closed - #{@motion.name}")
   end
 
